@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Vehicles01.API.Data.Entities.VehicleType>
+﻿@model IEnumerable<Vehicles01.API.Data.Entities.Brand>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 
 <p>
     <a asp-action="Create" class="btn btn-primary">Nuevo</a>
@@ -13,7 +13,7 @@
     <div class="col-md-12 ">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Tipos de vehiculos</h3>
+                <h3 class="panel-title">Tipos de marcas</h3>
             </div>
             <div class="panel-body">
                 <table class="table table-hover table-responsive table-striped" id="MyTable">
@@ -65,7 +65,7 @@
             });
 
         //Delete item
-        sc_deleteDialog.openModal('deleteItem', true, 'btnYesDelete', '/VehicleTypes/Delete/', false);
+        sc_deleteDialog.openModal('deleteItem', true, 'btnYesDelete', '/Brands/Delete/', false);
         });
     </script>
 }
