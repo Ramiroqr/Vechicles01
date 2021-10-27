@@ -113,7 +113,7 @@ namespace Vehicles01.API.Controllers
             return View(documentType);
         }
 
-        // GET: VehicleTypes/Delete/5
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
