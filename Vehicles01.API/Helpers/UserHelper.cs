@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Vehicles01.API.Data;
 using Vehicles01.API.Data.Entities;
+using Vehicles01.API.Models;
 
 namespace Vehicles01.API.Helpers
 {
@@ -14,14 +13,17 @@ namespace Vehicles01.API.Helpers
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly DataContext _context;
+        private readonly SignInManager<User> _signInManager;
 
         public UserHelper(UserManager<User> userManager,
                           RoleManager<IdentityRole> roleManager,
-                          DataContext context)
+                          DataContext context,
+                          SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _context = context;
+            _signInManager = signInManager;
         }
 
         public async Task<IdentityResult> AddUserAsync(User user, string password)
@@ -53,6 +55,16 @@ namespace Vehicles01.API.Helpers
         public async Task<bool> IsUserInRoleAsync(User user, string roleName)
         {
             return await _userManager.IsInRoleAsync(user, roleName);
+        }
+
+        public async Task<SignInResult> LoginAsync(LoginViewModel model)
+        {
+            return await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+        }
+
+        public async Task LogoutAsync()
+        {
+            await _signInManager.SignOutAsync();
         }
     }
 }

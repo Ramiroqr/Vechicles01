@@ -23,6 +23,8 @@ namespace Vehicles01.API.Data
 
         public DbSet<DocumentType> DocumentTypes { get; set; }
 
+        public DbSet<Vehicle> Vehicles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -38,6 +40,9 @@ namespace Vehicles01.API.Data
 
             modelBuilder.Entity<DocumentType>()
                 .HasIndex(x => x.Description).IsUnique();
+
+            modelBuilder.Entity<Vehicle>()
+                .HasIndex(x => x.Plaque).IsUnique();
         }
     }
 }
