@@ -16,5 +16,6 @@ namespace Vehicles01.API.Data.Entities
         public string Description { get; set; }
 
         public ICollection<Vehicle> Vehicles { get; set; }
+
     }
 }
