@@ -12,7 +12,7 @@ namespace Vehicles01.API.Helpers
 
         Task<Guid> UploadBlobAsync(byte[] file, string containerName);
 
-        Task<Guid> UploadBlobAsyc(string image, string containerName);
+        Task<Guid> UploadBlobAsync(string image, string containerName);
 
         Task DeleteBlobAsync(Guid id, string containerName);
     }

@@ -49,6 +49,7 @@ namespace Vehicles01.API.Helpers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Id = user.Id,
+                ImageId = user.ImageId,
                 PhoneNumber = user.PhoneNumber,
                 UserType = user.UserType,
             };

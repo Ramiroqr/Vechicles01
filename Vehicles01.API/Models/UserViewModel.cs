@@ -43,6 +43,11 @@ namespace Vehicles01.API.Models
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Foto")]
+        public string ImageFullPath => ImageId == Guid.Empty
+            ? $"https://localhost:44321/images/no-image.png"
+            : $"https://vehicle01.blob.core.windows.net/users/{ImageId}";
+
+        [Display(Name = "Foto")]
         public Guid ImageId { get; set; }
 
         [Display(Name = "Tipo de usuario")]
